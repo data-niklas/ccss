@@ -1,18 +1,23 @@
 :root{
-    --black: #232323;
-    --white: #FFFFFF;
     --green: rgb(115, 236, 125);
     --red: rgb(236, 115, 125);
     --blue: rgb(91, 129, 231);
     --yellow: rgb(248, 245, 62);
-    --success: rgb(64, 211, 51);
-    --error: rgb(235, 60, 60);
     --dark-blue: rgb(48, 87, 196);
-    --white-hover: rgb(245, 245, 245);
-    --white-focus: rgb(224, 224, 224);
+
+    --white: #FFFFFF;
+    --dark-white: rgb(245, 245, 245);
+    --light-grey: rgb(224, 224, 224);
+    --light-grey2: rgb(212, 212, 212);
     --grey: #cacaca;
     --dark-grey: #838383;
-    --font: Verdana, Geneva, sans-serif;
+    --dark-grey2: #707070;   
+    --light-black: #383838;
+    --light-black2: #424242;
+    --black: #232323;
+
+    --success: rgb(64, 211, 51);
+    --error: rgb(235, 60, 60);
 
     --size-small: 4px;
     --size-medium: 8px;
@@ -20,6 +25,44 @@
     --size-xlarge: 20px;
 
     --border-radius: 5px;
+    --font: Verdana, Geneva, sans-serif;
+    --color: var(--black); 
+    --background-color: var(--white);
+    --hover: var(--dark-white);
+    --focus: var(--light-grey);
+    --border-color: var(--grey);
+    --shadow-color: var(--dark-grey);
+
+    --blockquote-border: var(--black);
+
+    --mark-color: var(--black);
+    --mark-background-color: #FFFF00;
+
+    --table-background-color: var(--background-color);
+    --table-striped-background-color: var(--dark-white);
+    --table-head-background-color: var(--grey);
+    --table-hover-background-color: var(--hover);
+    --table-focus-background-color: var(--focus);
+}
+
+/* Themes */
+:root[data-theme="dark"]{
+    --color: var(--white); 
+    --background-color: var(--black);
+    --hover: var(--light-black2);
+    --focus: var(--dark-grey2);
+    --border-color: var(--grey);
+    --blockquote-border: var(--grey);
+    --shadow-color: var(--white);
+    --table-striped-background-color: var(--light-black);
+    --table-head-background-color: var(--dark-grey);
+}
+
+:root[data-size="large"]{
+    --size-small: 8px;
+    --size-medium: 12px;
+    --size-large: 20px;
+    --size-xlarge: 28px;
 }
 
 *{
@@ -31,25 +74,25 @@
 
 select, textarea, .box, cite, blockquote, input,button{
     padding: var(--size-medium);
-    background-color: var(--white);
+    background-color: var(--background-color);
 }
 table, progress, select, textarea, .box, .border, input, button{
-    border: 1px solid var(--grey);
+    border: 1px solid var(--border-color);
     border-radius: var(--border-radius);
 }
 .responsive:hover, .emphasized, code, blockquote, input[type="button"]:hover, button:hover{
-    background-color: var(--white-hover);
+    background-color: var(--hover);
 }
 .responsive:active, input[type="button"]:active,button:active{
-    background-color: var(--white-focus);
+    background-color: var(--focus);
 }
 
 /* body */
 body{
-    background-color: var(--white);
+    background-color: var(--background-color);
 }
-body *{
-    color: var(--black);
+body, body *{
+    color: var(--color);
     font-family: var(--font);
 }
 
@@ -71,8 +114,7 @@ input.invalid{
 
 /* Blockquote specific*/
 blockquote{
-    border-left: 2px var(--black) solid;
-    border-color: var(--dark-grey);
+    border-left: 2px var(--blockquote-border) solid;
     border-radius: var(--border-radius);
 }
 
@@ -95,11 +137,11 @@ code::before{
 
 /* Progress */
 progress{
-    background-color: var(--white-hover);
+    background-color: var(--hover);
     border-radius: var(--border-radius);
 }
 progress::-webkit-progress-bar {
-    background-color: var(--white-hover);
+    background-color: var(--hover);
     border-radius: var(--border-radius);
 }
 progress::-webkit-progress-value, progress::-moz-progress-bar {
@@ -118,28 +160,34 @@ progress.bland::-webkit-progress-value, progress.bland::-moz-progress-bar {
 
 /* Table */
 table{
-    border-collapse:collapse
+    border-collapse:collapse;
 }
 thead td{
-    background-color: var(--white-focus);
+    background-color: var(--table-head-background-color);
 }
 td{
-    padding: var(--size-small)
-}
-table.striped tr:nth-of-type(odd){
-    background-color: var(--white);
-}
+    padding: var(--size-small);
+} 
 table.striped tr:nth-of-type(even){
-    background-color: var(--white-hover);
+    background-color: var(--table-striped-background-color);
 }
-table.hover-row tr:hover,table.hover tr:hover{
-    background-color: var(--white-focus);
+table:not(.striped) tr, table.striped tr:nth-of-type(odd){
+    background-color: var(--table-background-color);
 }
-table.hover-cell td:hover{
-    background-color: var(--white-focus);
+table.hover-row > tbody tr:hover,table.hover tbody tr:hover{
+    background-color: var(--table-hover-background-color);
+}
+table.hover-cell > tbody tr td:hover{
+    background-color: var(--table-hover-background-color);
+}
+table.hover-row > tbody tr:active,table.hover tbody tr:active{
+    background-color: var(--table-focus-background-color);
+}
+table.hover-cell > tbody tr td:active{
+    background-color: var(--table-focus-background-color);
 }
 table.border tr > td{
-    border: 1px solid var(--grey);
+    border: 1px solid var(--border-color);
 }
 
 
@@ -159,6 +207,13 @@ textarea{
     resize: none;
     min-height: 10rem;
     min-width: 20rem;
+}
+
+/* Mark specific */
+mark{
+    color: var(--mark-color);
+    background-color: var(--mark-background-color);
+    padding: 0 0.1em 0 0.1em;
 }
 
 
@@ -335,6 +390,7 @@ textarea{
     padding-block-end: var(--size-xlarge);
 }
 
+
 /* Flexbox */
 .vbox{
     display: flex;
@@ -352,7 +408,7 @@ textarea{
 }
 /* Misc */
 .elevated{
-    box-shadow: var(--dark-grey) 3px 3px 3px;
+    box-shadow: var(--shadow-color) 3px 3px 3px;
 }
 .fit{
     width: max-content;
@@ -364,7 +420,7 @@ textarea{
 .bold{
     font-weight: bold;
 }
-adress,blockquote,.italic{
+address,blockquote,.italic{
     font-style: italic;   
 }
 .strikethrough{
@@ -375,6 +431,52 @@ adress,blockquote,.italic{
 }
 .larger{
     font-size: larger;
+}
+.wavy{
+    text-decoration: underline wavy var(--border-color);
+}
+.dotted{
+    text-decoration: underline dotted var(--border-color);
+}
+.dashed{
+    text-decoration: underline dashed var(--border-color);
+}
+
+/* Position */
+.fixed{
+    position: fixed;
+}
+.relative{
+    position: relative;
+}
+.static{
+    position: static;
+}
+.sticky{
+    position: sticky;
+}
+.absolute{
+    position: absolute;
+}
+
+/* display */
+.none{
+    display: none;
+}
+.inline{
+    display: inline;
+}
+.flex{
+    display: flex;
+}
+.inline-block:{
+    display: inline-block;
+}
+.block{
+    display: block;
+}
+.inline-flex{
+    display: inline-flex;
 }
 
 

@@ -1,19 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en" data-size="large" data-theme="light">
+<head >
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Test Page CCSS</title>
     <link rel="stylesheet" href="ccss.css" type="text/css" />
-</head>
+    <style>
+        :root{
+        }
+    </style>
+</head >
 <body>
     <button>Some button</button>
     <input class="invalid" type="range" value="COLOR" />
     <a href="https://www.duckduckgo.com" target="_blank" class="responsive">Duckduckgo</a>
     Some link to Duckduckgo <mark>Marked text</mark>
     <div class="mg-bottom fit mg-top mg-bottom box">Some text here!</div>
-    <span class="bold wavy">Strikethrough</span>
+    <span class="bold dotted">Strikethrough</span>
     <blockquote class="fit">Quote by somebody</blockquote>
     <adress>
         Written by <a href="mailto:example@example.donotsend">Example Mail</a>
@@ -52,7 +56,7 @@
         <option value="3">asdasd</option>
     </select>
     <div class="select">Test</div>
-    <progress class="bland" value="32" max="100">32%</progress><sup>Hihger</sup>than after
+    <progress class="success" value="52" max="100">32%</progress><sup>Hihger</sup>than after
     <ol>
         <li>1</li>
         <li>"Second item</li>
@@ -61,7 +65,7 @@
         <li class="responsive fit">1 item</li>
         <li>2nd item</li>
     </ul>
-    <table class="hover-cell">
+    <table class="striped hover-cell">
         <thead>
             <td>1</td>
             <td>2nd</td>
