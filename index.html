@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test Page CCSS</title>
+    <link rel="stylesheet" href="ccss.css" type="text/css" />
+</head>
+<body>
+    <button>Some button</button>
+    <input class="invalid" type="range" value="COLOR" />
+    <a href="https://www.duckduckgo.com" target="_blank" class="responsive">Duckduckgo</a>
+    Some link to Duckduckgo <mark>Marked text</mark>
+    <div class="mg-bottom fit mg-top mg-bottom box">Some text here!</div>
+    <span class="bold wavy">Strikethrough</span>
+    <blockquote class="fit">Quote by somebody</blockquote>
+    <adress>
+        Written by <a href="mailto:example@example.donotsend">Example Mail</a>
+        Adress Information
+    </adress>
+    <code data-lang="java">
+        ArrayList aListDays = new ArrayList<String>();
+            aListDays.add("Sunday");
+            aListDays.add("Monday");
+            aListDays.add("Tuesday");
+             
+            /*
+             * get the iterator by using iterator method
+             * of ArrayList class
+             */
+            Iterator iterator = aListDays.iterator();
+             
+            /*
+             * loop through elements till iterator's
+             * hasNext method returns true. 
+             */
+            while( iterator.hasNext() ){
+                /*
+                 * get the next element using 
+                 * next method
+                 */
+                System.out.println( iterator.next() );
+        }
+    </code>
+    <textarea>
+        Your text!
+    </textarea>
+    <select>
+        <option value="1">1</option>
+        <option value="some value">some value</option>
+        <option value="3">asdasd</option>
+    </select>
+    <div class="select">Test</div>
+    <progress class="bland" value="32" max="100">32%</progress><sup>Hihger</sup>than after
+    <ol>
+        <li>1</li>
+        <li>"Second item</li>
+    </ol>
+    <ul>
+        <li class="responsive fit">1 item</li>
+        <li>2nd item</li>
+    </ul>
+    <table class="hover-cell">
+        <thead>
+            <td>1</td>
+            <td>2nd</td>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Some longer text</td>
+                <td>Who knowns?</td>
+            </tr>
+            <tr>
+                <td>Something</td>
+                <td>Snd</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
