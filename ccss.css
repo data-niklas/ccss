@@ -341,7 +341,7 @@ mark{
 .mg-end-large{
     margin-block-end: var(--size-large);
 }
-.mg-end-xlare{
+.mg-end-xlarge{
     margin-block-end: var(--size-xlarge);
 }
 /* Padding */
@@ -447,7 +447,7 @@ mark{
 .pd-end-large{
     padding-block-end: var(--size-large);
 }
-.pd-end-xlare{
+.pd-end-xlarge{
     padding-block-end: var(--size-xlarge);
 }
 
@@ -481,7 +481,7 @@ mark{
 .bold{
     font-weight: bold;
 }
-address,blockquote,.italic{
+address, blockquote, .italic{
     font-style: italic;   
 }
 .strikethrough{
@@ -540,6 +540,25 @@ address,blockquote,.italic{
     display: inline-flex;
 }
 
+.icon{
+    display: inline-block;
+}
+.icon, .icon-medium{
+    width: calc(var(--size-medium) * 3);
+    height: calc(var(--size-medium) * 3);
+    font-size: var(--size-medium);
+}
+.icon-small{
+    width: calc(var(--size-small) * 3);
+    height: calc(var(--size-small) * 3);
+    font-size: var(--size-medium);
+}
+.icon-large{
+    width: calc(var(--size-large) * 3);
+    height: calc(var(--size-large) * 3);
+    font-size: var(--size-medium);
+}
+
 
 /* Animations */
 .shake{
@@ -553,6 +572,17 @@ address,blockquote,.italic{
 
 .loop{
     animation-iteration-count: infinite;
+}
+
+.loading::after{
+    content: " ";
+    display: block;
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+    border: 0.4em solid var(--color);
+    border-color: var(--color) transparent var(--color) transparent;
+    animation: circle 1.2s linear infinite;
 }
 
 @keyframes largen{
@@ -581,3 +611,12 @@ address,blockquote,.italic{
       transform: translate3d(4px, 0, 0);
     }
   }
+
+@keyframes circle{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
